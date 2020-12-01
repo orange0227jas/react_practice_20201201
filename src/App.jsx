@@ -18,6 +18,13 @@ export const App = () => {
     setTodoText("");
   };
 
+  const onClickDelete = (index) => {
+    const newTodos = [...incompleteTodos];
+    newTodos.splice(index, 1);
+    /*spliceは、１つ目の引数で何番目の要素かを指定し、２つ目の引数で削除する数を指定する。 */
+    setIncompleteTodos(newTodos);
+  };
+
   return (
     <>
       <div className="input-area">
@@ -31,12 +38,13 @@ export const App = () => {
       <div className="incomplete-area">
         <p className="title">未完了エリア</p>
         <ul>
-          {incompleteTodos.map((todo) => {
+          {incompleteTodos.map((todo, index) => {
             return (
               <div key={todo} className="list-row">
                 <li>{todo}</li>
                 <button>完了</button>
-                <button>削除</button>
+                <button onClick={() => onClickDelete(index)}>削除</button>
+                {/* onClickDeleteをそのまま入れると実行されるので、関数化している */}
               </div>
             );
           })}
