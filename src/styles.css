@@ -1,4 +1,64 @@
-.App {
+body {
   font-family: sans-serif;
+}
+input {
+  border-radius: 10px;
+  border: none;
+  padding: 8px 18px;
+  outline: none; /*hover時のアウトラインを消す*/
+}
+
+button {
+  border-radius: 16px;
+  border: none;
+  padding: 5px 15px;
+}
+
+button:hover {
+  /*マウスが乗った時の動作*/
+  background-color: pink;
+  color: white;
+  cursor: pointer; /*ポインターを変更する*/
+}
+
+li {
+  margin-right: 8px;
+}
+
+.input-area {
+  background-color: aqua;
+  width: 400px;
+  height: 30px;
+  padding: 8px;
+  margin: 8px;
+  border-radius: 10px;
+}
+.incomplete-area {
+  background-color: orange;
+  width: 400px;
+  min-height: 200px; /*--最小限のサイズを指定 */
+  padding: 8px;
+  margin: 8px;
+  border-radius: 10px;
+}
+
+.complete-area {
+  background-color: forestgreen;
+  width: 400px;
+  min-height: 200px; /*--最小限のサイズを指定 */
+  padding: 8px;
+  margin: 8px;
+  border-radius: 10px;
+}
+
+.title {
   text-align: center;
+  margin-top: 0px;
+  font-weight: bold;
+  color: #666;
+}
+.list-row {
+  display: flex;
+  align-items: center; /*上下のズレを修正*/
+  padding-bottom: 4px;
 }
