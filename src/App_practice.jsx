@@ -4,12 +4,12 @@ import "./styles.css";
 export const App = () => {
   const [todoText, setTodoText] = useState();
   const [incompleteTodos, setIncompleteTodos] = useState([
-    "もちもち！！！",
-    "もちだ！！"
+    "テスト環境だ！！！",
+    "テストテスト！！"
   ]);
   const [completeTodos, setCompleteTodos] = useState([
-    "終わった！！",
-    "もう、終わり！！"
+    "テースー！！",
+    "テステス！！"
   ]);
 
   const onChangeTodoText = (event) => setTodoText(event.target.value);
@@ -25,6 +25,14 @@ export const App = () => {
     const newTodos = [...incompleteTodos];
     newTodos.splice(index, 1);
     setIncompleteTodos(newTodos);
+  };
+
+  const onClickComplete = (index) => {
+    const newCompleteTodos = [...completeTodos, incompleteTodos[index]];
+    const newIncompleteTodos = [...incompleteTodos];
+    newIncompleteTodos.splice(index, 1);
+    setCompleteTodos(newCompleteTodos);
+    setIncompleteTodos(newIncompleteTodos);
   };
   return (
     <>
@@ -43,7 +51,7 @@ export const App = () => {
             return (
               <div key={todo} className="list-row">
                 <li>{todo}</li>
-                <button>完了</button>
+                <button onClick={() => onClickComplete(index)}>完了</button>
                 <button onClick={() => onClickDelete(index)}>削除</button>
               </div>
             );

@@ -26,12 +26,10 @@ export const App = () => {
   };
 
   const onClickComplete = (index) => {
-    const completeTodoText = incompleteTodos[index];
-    //alert(incompleteTodos[index]);
-    const newTodos = [...completeTodos, completeTodoText];
-    setCompleteTodos(newTodos);
+    const newCompleteTodos = [...completeTodos, incompleteTodos[index]];
     const newIncompleteTodos = [...incompleteTodos];
     newIncompleteTodos.splice(index, 1);
+    setCompleteTodos(newCompleteTodos);
     setIncompleteTodos(newIncompleteTodos);
   };
   return (
